@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+    {% if cats_list.object_list %}
+        {% for cat in cats_list.object_list %}
+                <a href="{% url cat cat.id %}">{{ cat.title }}</a><br>
+                -------------------- <br><br>
+        {% endfor %}
+    {% endif %}
+
+	<br><br>
+	<div class="pagination">
+        <span class="step-links">
+		
+        {% if cats_list.has_previous %}
+            <a href="?page={{ cats_list.previous_page_number }}">previous</a>
+        {% endif %}
+		
+        <span class="current">
+            Page {{ cats_list.number }} of {{ cats_list.paginator.num_pages }}.
+        </span>
+
+        {% if cats_list.has_next %}
+            <a href="?page={{ cats_list.next_page_number }}">next</a>
+        {% endif %}
+        </span>
+        </div>
+
+
+{% endblock %}

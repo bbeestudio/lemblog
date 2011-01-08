@@ -1,0 +1,273 @@
+﻿<!DOCTYPE HTML>
+<html lang="ru-RU">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %} {% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}style.css" media="all" />
+	<style type="text/css">
+		html, body, div, span, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		abbr, address, cite, code,
+		del, dfn, em, img, ins, kbd, q, samp,
+		small, strong, sub, sup, var,
+		b, i,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, figcaption, figure, 
+		footer, header, hgroup, menu, nav, section, summary,
+		time, mark, audio, video {
+		    margin:0;
+		    padding:0;
+		    border:0;
+		    outline:0;
+		    font-size:100%;
+		    vertical-align:baseline;
+		    background:transparent;
+		}
+		
+		* {
+			margin:0;
+			padding:0;
+		}
+		
+		#main {
+			margin:50px;
+			width:600px;
+		}
+		
+		IMG {
+			margin:5px;
+			padding:10px;
+			border:1px #f4f4f4 solid;
+			border-radius:10px;
+			-moz-border-radius:10px;
+			-webkit-border-radius:10px;
+			max-width: 550px;
+		}
+		
+		H1 {
+			font-family:Trebuchet MS, Helvetica, sans-serif;
+			font-size: 18px;
+			color:#0b80d1;
+		}
+		
+		H2 {
+			font-size:15px;
+			color:#ccc;
+		}
+		
+		.wrap {
+			height:20px;
+		}
+		
+		.post {
+			margin-bottom:60px;
+		}
+		
+		.text {
+			font-family:Times New Roman, Times, serif;
+			font-size:16px;
+			margin-top:10px;
+			margin-bottom:10px;
+		}
+		
+		HR {
+			
+		}
+		
+		.name {
+			color:#343434;
+			font-family:Trebuchet MS, Helvetica, sans-serif;
+			font-size:24px;
+			font-style: italic;
+			
+		}
+		.name A {
+			color:#000;
+			text-decoration:none;
+		}
+		.name A:hover {
+			color:#343434;
+		}
+		
+		P {
+			margin-bottom:20px;
+			color:#2e2e2e;
+		}
+		
+		.info {
+			color:#696969;
+			font-family:Times New Roman, Times, serif;
+			font-size:16px;
+			font-style:italic;
+		}
+		.info A {
+			color:#696969;
+			border-bottom:1px dotted #696969;
+			text-decoration:none;
+		}
+		.info A:hover {
+			color:#ccc;
+			border-bottom:1px dotted #ccc;
+		}
+		
+		.tags {
+			color:#696969;
+			font-family:Times New Roman, Times, serif;
+			font-size:16px;
+			font-style:italic;
+		}
+		.tags A {
+			color:#696969;
+			border-bottom:1px dotted #696969;
+			font-style:normal;
+			text-decoration:none;
+			font-size:15px;
+		}
+		.tags A:hover {
+			color:#ccc;
+			border-bottom:1px dotted #ccc;
+		}
+		
+		.date {
+			font-family:Times New Roman, Times, serif;
+			font-size:14px;
+			font-style:italic;
+			color:#939393;
+		}
+		
+		.pages {
+			margin-bottom:15px;
+			font-family:Times New Roman, Times, serif;
+			font-size:16px;
+			color:#ccc;
+		}
+			.pages A {
+				color:#0b80d1;
+				text-decoration:none;
+			}
+			.pages A:hover {
+				
+			}
+			#footer {
+				font-family:Times New Roman, Times, serif;
+				font-size:15px;
+				font-style:italic;
+				color:#505050;
+				text-align:right;
+				float:right;
+				background:#f4f4f4;
+				padding:5px;
+			}
+			blockquote {
+			        margin-left: 20px;
+					padding-left:10px;
+					border-left: 1px dotted #d0d0d0; }
+			blockquote p {
+				line-height: 25px; 
+				font-family:Times New Roman, Times, serif;
+				font-size:15px;
+				/*color:#0eb09b;*/
+				}
+				#menu {
+					color:#696969;
+					font-family:Times New Roman, Times, serif;
+					font-size:16px;
+					font-style:italic;
+				}
+				#menu A {
+					color:#696969;
+					border-bottom:1px dotted #696969;
+					font-style:normal;
+					text-decoration:none;
+					font-size:15px;
+				}
+				#menu A:hover {
+					color:#ccc;
+					border-bottom:1px dotted #ccc;
+				}
+				#cats, #arch {
+					margin-top:10px;
+					padding:10px;
+					border:1px #f4f4f4 solid;
+					border-radius:10px;
+					-moz-border-radius:10px;
+					-webkit-border-radius:10px;
+					width:300px;
+					display:none;
+					font-family:Times New Roman, Times, serif;
+					font-size:16px;
+				}
+					#cats LI {
+						margin-left:25px;
+					}
+						#arch Li {
+							margin-left:25px;
+						}
+						.in {
+							margin-left:10px;
+						}
+					
+						#cats ul li A {
+							color:#494949;
+							text-decoration:none;
+						}
+						#cats ul li A:hover {
+							color:#0b80d1;
+						}
+							#arch ul li A {
+								color:#494949;
+								text-decoration:none;
+							}
+							#arch ul li A:hover {
+								color:#0b80d1;
+							}
+							#cuser {
+								color:#2e2e2e;
+								font-family:Times New Roman, Times, serif;
+								font-size:18px;
+								font-style:italic;
+							}
+							#cuser A {
+								color:#696969;
+								border-bottom:1px dotted #696969;
+								font-style:normal;
+								text-decoration:none;
+								font-size:17px;
+							}
+							#cuser A:hover {
+								color:#ccc;
+								border-bottom:1px dotted #ccc;
+							}
+			
+	</style>
+	<script type="text/javascript" src="http://yandex.st/jquery/1.4.2/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+	  $(document).ready(function(){
+	    $("#opencats").click(function () {
+	      $("#cats").toggle("slow");
+	    });
+		$("#openarch").click(function () {
+	      $("#arch").toggle("slow");
+	    });
+	});
+
+	</script>
+	
+</head>
+<body>
+	<div id="main">
+		<h1>lemblog</h1>
+		{% load core %}
+		<div id="menu"><a href="{{ SITE_NAME.domain }}">Главная</a> | <a href="#" id="opencats">Категории</a> | <a href="#" id="openarch">Архив публикаций</a> | <a href="{{ SITE_NAME.domain }}rss/">RSS</a></div>
+			{% get_cats_list %}
+			{% get_arch %}
+		<div class="wrap">&nbsp;</div>
+		{% block content %}
+
+		{% endblock %}
+	</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+CUSTOM_USER_MODEL = 'custom_user.CustomUser'

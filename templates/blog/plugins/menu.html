@@ -1,0 +1,7 @@
+{% if item_menu_list %}
+<ul>
+{% for item in item_menu_list %}
+<li>{{ item.target|safe }}{% if not forloop.last %} | {% endif %}</li> 
+{% endfor %}
+</ul>
+{% endif %}

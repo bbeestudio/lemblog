@@ -1,0 +1,38 @@
+﻿{% extends "blog/base.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    {% if posts_list.object_list %}
+        {% for post in posts_list.object_list %}
+            {% if post.published %}
+
+<div class="post">
+	<div class="name"><a href="{% url cat post.cat.id %}">{{ post.cat.title }}</a> → <a href="{% url post post.slug %}">{{ post.title }}</a></div>
+	<div class="date">{{ post.pub_date|date:"d F Y" }}</div>
+	<div class="tags">Метки записи: 
+		{% for tag in post.tags_list.all %}
+		<a href="{% url tag tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+		{% endfor %}
+	</div>
+	<div class="text">
+		{{ post.desc|safe }}
+	</div>
+	<div class="info">Заметка написана человеком по имени <a href="{% url user post.user %}">{{ post.user }}</a> | <a href="e">комментарии</a></div>
+</div>
+    {% endif %}
+{% endfor %}
+<div class="pages">
+	{% if posts_list.has_previous %}<a href="?page={{ posts_list.previous_page_number }}">← назад</a>{% endif %}
+	&nbsp;&nbsp;
+	{% if posts_list.has_next %}<a href="?page={{ posts_list.next_page_number }}">вперед →</a>{% endif %}
+	&nbsp;({{ posts_list.number }}/{{ posts_list.paginator.num_pages }})
+</div>
+<div id="footer">&copy; 2010 Все права не защищены</div>
+
+{% else %}
+    <p>Нет доступных постов</p>
+{% endif %}
+
+{%endblock%}

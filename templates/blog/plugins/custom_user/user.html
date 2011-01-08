@@ -1,0 +1,50 @@
+{% extends "blog/base.html"%}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block content %}
+<div id="cuser">
+    <table>
+        <tr>
+            <td>    
+			{%if user.image %} <img src = "{{ user.image.url }}" align="left"> {% endif %}
+            <p>Ник: {{ user.username }}<br>
+            {%if user.first_name %}
+               	Имя: {{ user.first_name }}<br> 
+            {% endif %}     
+            {%if user.last_name %}       
+                Фамилия: {{ user.last_name }}<br>
+            {% endif %}  </p>
+
+			</td></tr>
+			<tr>
+				<td>
+            {%if user.twitter %}       
+                Twitter: <a href="http://twitter.com/{{ user.twitter }}" target="_blank">{{ user.twitter }}</a>
+            {% endif %}</td></tr>
+				<tr>
+					<td>
+            {%if user.jabber %}         
+                Jabber: <a href="xmpp:{{ user.jabber }}">{{ user.jabber }}</a>
+            {% endif %}</td></tr>
+				<tr>
+					<td>
+            {%if user.icq %}     
+                ICQ: <a href="http://www.icq.com/people/{{ user.icq }}" target="_blank">{{ user.icq }}</a>
+            {% endif %}</td></tr>
+				<tr>
+					<td>
+            {%if user.vkontakte %}     
+                ВКонтакте: <a href="http://vkontakte.ru/{{ user.vkontakte }}" target="_blank">http://vkontakte.ru/{{ user.vkontakte }}</a></td></tr>
+            {% endif %}
+				<tr>
+					<td>
+            {%if user.facebook %}              
+                Facebook: <a href="http://facebook.com/{{ user.facebook }} target="_blank"">http://facebook.com/{{ user.facebook }}</a>
+            {% endif %}      
+            </td>    
+        </tr>
+    </table> 
+</div>
+{% endblock %}

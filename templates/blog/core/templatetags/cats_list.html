@@ -1,0 +1,10 @@
+{% if cats_list %}
+{% load core %}
+<div id="cats">
+	<ul>
+	{% for cat in cats_list %}
+		<li><a href="{% url cat cat.slug %}">{{ cat.title }}</a> ({% count category cat.id %})</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endif %}

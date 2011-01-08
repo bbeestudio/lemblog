@@ -1,0 +1,13 @@
+{% load core %}
+<div id="arch">
+	<ul>
+{% for year,months_list in years.items %}
+    	<li><a href="{% url arch year %}">{{ year }}</a> ({% count arch_year year %})</li>
+    	<ul class="in">
+    	{% for month in months_list %}
+        	<li><a href="{% url arch year month|date:"n" %}">{{ month|date:"F" }}</a> ({% count arch_year_month year month.month %})</li>
+    	{% endfor %}
+		</ul>
+{% endfor %}
+	</ul>
+</div>

@@ -1,0 +1,6 @@
+{% if counters_list %}
+    {% for counter in counters_list %}
+		{{ counter.code|safe }}
+    {% endfor %}
+{% endif %}
+

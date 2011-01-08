@@ -1,0 +1,17 @@
+{% if posts_list %}
+    Последние посты от этого пользователя:<br><br>
+    {% for post in posts_list %}
+        {% if post.published %}
+            <a href="{% url cat post.cat.slug %}"> {{ post.cat.title }} </a> ---> <a href="{% url post post.slug %}">{{ post.title }}</a><br><br>
+            {{ post.desc|safe }} <br>
+            {{ post.pub_date|date:"d F Y" }} <br>
+            {% for tag in post.tags_list.all %}
+                <a href="{% url  tag tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}<br>
+            ********************* <br><br>
+        {% endif %}
+    {% endfor %}
+<a href="{%url user_posts user%}">Хотите еще постов?</a>
+{% else %}
+    Этот пользователь пока ничего не писал
+{% endif %}
